@@ -5,7 +5,6 @@
 #ifndef CHIP_8_EMULATOR_CPU_H
 #define CHIP_8_EMULATOR_CPU_H
 
-#include <cstdint>
 #include <string>
 
 constexpr int MEMORY_SIZE = 4096;
@@ -16,21 +15,11 @@ constexpr int DISPLAY_HEIGHT = 32;
 constexpr int START = 0x200;
 constexpr int FONTSET_START = 0x50;
 
-extern uint8_t V[16];
-extern uint16_t I, pc, sp;
-extern uint16_t stack[16];
-extern uint8_t delay_timer, sound_timer;
-extern uint8_t memory[4096];
-extern int display[64 * 32];
-extern int keypad[16];
-extern bool draw_flag;
-extern unsigned char fontset[80];
-
 constexpr int PIXEL_SIZE = 10;
 
 void init();
 
-bool load_rom(std::string rom);
+bool load_rom(std::string);
 
 void cycle();
 
